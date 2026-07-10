@@ -1,0 +1,24 @@
+# Dependencias 
+node_modules/
+.deno/
+ 
+# Caché interno
+.slidev/
+components.d.ts
+auto-imports.d.ts
+ 
+# Exportaciones
+dist/
+*.pdf
+*.pptx
+*.pptist
+export.json
+ 
+# Deno 
+.vite/
+.DS_Store
+Thumbs.db
+ 
+# Logs
+*.log
+npm-debug.log*
