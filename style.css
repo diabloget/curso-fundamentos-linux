@@ -18,17 +18,14 @@
 }
 
 .slidev-layout {
-  background:
-    linear-gradient(135deg, rgba(229,9,37,0.20) 0%, rgba(229,9,37,0.00) 23%),
-    radial-gradient(circle at 78% 32%, rgba(229,9,37,0.20), transparent 27%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: Inter, system-ui, sans-serif;
 }
 
 /* ─────────────────────────────────────────────────────────────
-   SLIDE 1 · PORTADA
-───────────────────────────────────────────────────────────── */
+ *   SLIDE 1 · PORTADA
+ * ───────────────────────────────────────────────────────────── */
 
 .deck-frame {
   position: relative;
@@ -226,8 +223,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   BASE PARA DIAPOSITIVAS DE CONTENIDO
-───────────────────────────────────────────────────────────── */
+ *   BASE PARA DIAPOSITIVAS DE CONTENIDO
+ * ───────────────────────────────────────────────────────────── */
 
 .content-slide {
   position: relative;
@@ -287,8 +284,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   PREGUNTAS EN PANTALLA COMPLETA
-───────────────────────────────────────────────────────────── */
+ *   PREGUNTAS EN PANTALLA COMPLETA
+ * ───────────────────────────────────────────────────────────── */
 
 .question-slide {
   position: relative;
@@ -321,8 +318,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   GRID DE LOGOS (distribuciones, hardware, etc.)
-───────────────────────────────────────────────────────────── */
+ *   GRID DE LOGOS (distribuciones, hardware, etc.)
+ * ───────────────────────────────────────────────────────────── */
 
 .logo-grid {
   margin-top: 22px;
@@ -357,8 +354,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   LISTA DE TEMAS CORTOS (sin oraciones completas)
-───────────────────────────────────────────────────────────── */
+ *   LISTA DE TEMAS CORTOS (sin oraciones completas)
+ * ───────────────────────────────────────────────────────────── */
 
 .topic-list {
   margin-top: 22px;
@@ -385,8 +382,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   DOS COLUMNAS
-───────────────────────────────────────────────────────────── */
+ *   DOS COLUMNAS
+ * ───────────────────────────────────────────────────────────── */
 
 .two-col {
   margin-top: 22px;
@@ -434,8 +431,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   LÍNEA DE TIEMPO
-───────────────────────────────────────────────────────────── */
+ *   LÍNEA DE TIEMPO
+ * ───────────────────────────────────────────────────────────── */
 
 .timeline {
   margin-top: 26px;
@@ -484,9 +481,9 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   VENTANA DE TERMINAL ESTILO LINUX/KDE (Konsole)
-   Usa Jersey10 para el contenido de comandos/salida.
-───────────────────────────────────────────────────────────── */
+ *   VENTANA DE TERMINAL ESTILO LINUX/KDE (Konsole)
+ *   Usa Jersey10 para el contenido de comandos/salida.
+ * ───────────────────────────────────────────────────────────── */
 
 .term-window {
   margin-top: 20px;
@@ -564,9 +561,9 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   VENTANA ESTILO WINDOWS (PowerShell)
-   Usa Jersey10 para el contenido de comandos/salida.
-───────────────────────────────────────────────────────────── */
+ *   VENTANA ESTILO WINDOWS (PowerShell)
+ *   Usa Jersey10 para el contenido de comandos/salida.
+ * ───────────────────────────────────────────────────────────── */
 
 .win-window {
   margin-top: 18px;
@@ -639,8 +636,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   TARJETAS DE COMPARACIÓN (BSD vs Linux, Hyper-V vs VirtualBox)
-───────────────────────────────────────────────────────────── */
+ *   TARJETAS DE COMPARACIÓN (BSD vs Linux, Hyper-V vs VirtualBox)
+ * ───────────────────────────────────────────────────────────── */
 
 .compare-grid {
   margin-top: 20px;
@@ -702,8 +699,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   NOTA ACLARATORIA (para mitos / correcciones / spoilers)
-───────────────────────────────────────────────────────────── */
+ *   NOTA ACLARATORIA (para mitos / correcciones / spoilers)
+ * ───────────────────────────────────────────────────────────── */
 
 .callout {
   margin-top: 12px;
@@ -728,8 +725,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────
-   DIAPOSITIVA FINAL "¿PREGUNTAS?"
-───────────────────────────────────────────────────────────── */
+ *   DIAPOSITIVA FINAL "¿PREGUNTAS?"
+ * ───────────────────────────────────────────────────────────── */
 
 .closing-slide {
   position: relative;
@@ -754,4 +751,92 @@
   margin-top: 14px;
   color: var(--muted);
   font-size: 19px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+ *   CÓDIGO EN LÍNEA, COMANDOS Y ANIMACIÓN ENTER
+ * ───────────────────────────────────────────────────────────── */
+
+.code-pill,
+.cmd-pill {
+  display: inline-block;
+  background: #101214;
+  border: 1px solid rgba(255,255,255,0.10);
+  padding: 0.08em 0.38em;
+  border-radius: 0.35em;
+  font-family: 'Jersey10', "JetBrains Mono", monospace;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.code-pill {
+  color: var(--text);
+}
+
+.cmd-pill {
+  color: #27c93f;
+}
+
+.slide-title .code-pill,
+.slide-title .cmd-pill {
+  font-size: 0.86em;
+  vertical-align: 0.03em;
+}
+
+.agenda-item .cmd-pill,
+.topic-item .code-pill,
+.slide-sub .code-pill,
+.callout code,
+.col-card .code-pill,
+.col-card .cmd-pill {
+  font-size: 0.96em;
+}
+
+.example-line {
+  margin-left: 1.35rem;
+  color: var(--muted);
+}
+
+.example-line::before {
+  opacity: 0.55;
+}
+
+.topic-item code,
+.topic-item .code-pill {
+  font-weight: 500;
+}
+
+.term-body.pwd-demo {
+  position: relative;
+  min-height: 122px;
+}
+
+.enter-key {
+  display: inline-block;
+  margin: 14px 0 10px 26px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: #e5e7eb;
+  color: #111827;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 7px 0 #9ca3af;
+  animation: pressEnter 0.65s ease-in-out both;
+}
+
+@keyframes pressEnter {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 7px 0 #9ca3af;
+  }
+  45% {
+    transform: translateY(6px);
+    box-shadow: 0 1px 0 #9ca3af;
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 7px 0 #9ca3af;
+  }
 }

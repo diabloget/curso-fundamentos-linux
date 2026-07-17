@@ -1,6 +1,6 @@
 ---
 theme: default
-title: Fundamentos de Linux - Clase 1
+title: Fundamentos de Linux - Clase 2
 drawings:
   persist: false
 transition: fade
@@ -10,34 +10,20 @@ fonts:
 ---
 
 <div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 1 · Fundamentos de Linux</div>
+  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 2 · Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
-      <h1 class="hero-title">Primer contacto con <span>Linux</span></h1>
-      <p class="subtitle">Software libre, distribuciones, entornos de práctica y primeros comandos desde la terminal.</p>
+      <h1 class="hero-title">Navegación y <span>la terminal</span></h1>
+      <p class="subtitle">Moverse entre carpetas (directorios), ver y buscar archivos desde una terminal.</p>
       <div class="agenda">
-        <div class="agenda-item">¿Qué es Linux y dónde se usa?</div>
-        <div class="agenda-item">Historia, distribuciones y arquitecturas</div>
-        <div class="agenda-item">Gaming en Linux: SteamOS y Proton</div>
-        <div class="agenda-item">Entornos de práctica y primer comando</div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="profile-card">
-        <img class="profile-photo" src="/img/perfil.png" alt="David Robles" />
-        <div class="profile-name">Prof. David A. Robles Vargas</div>
-        <div class="profile-role">Estudiante de Ciencias de la Computación y Guitarra Clásica</div>
-        <div class="profile-institution">Instituto Tecnológico de Costa Rica</div>
-        <div class="profile-contact">
-          <div class="profile-contact-item"><div class="contact-icon" style="background-image:url('/icons/email.svg')"></div><span>darobles@proton.me</span></div>
-          <div class="profile-contact-item"><div class="contact-icon" style="background-image:url('/icons/whatsapp.svg')"></div><span>86329326</span></div>
-          <div class="profile-contact-item"><div class="contact-icon" style="background-image:url('/icons/signal.svg')"></div><span>darobles.49</span></div>
-        </div>
+        <div class="agenda-item">La terminal y la sintaxis de los comandos</div>
+        <div class="agenda-item">Ubicarse y moverse a través de directorios (<code class="cmd-pill">pwd</code> y <code class="cmd-pill">cd</code>)</div>
+        <div class="agenda-item">Listar archivos en un directorio</div>
+        <div class="agenda-item">Ayuda y documentación (<code class="cmd-pill">man</code> y <code class="cmd-pill">--help</code>)</div>
       </div>
     </div>
   </div>
-  <div class="corner-cut"></div>
   <div class="footer-line"></div>
 </div>
 
@@ -46,86 +32,23 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Historia · 1991 en adelante</div>
-  <h2 class="slide-title">De un proyecto de estudiante a <span>todas partes</span></h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-year">1983</div>
-      <div class="timeline-label">Richard Stallman funda el proyecto GNU</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">1991</div>
-      <div class="timeline-label">Linus Torvalds publica el primer kernel Linux</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">1990s</div>
-      <div class="timeline-label">GNU + Linux + distribuciones: nace el ecosistema</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-year">2000s–hoy</div>
-      <div class="timeline-label">De servidores a Android, la nube y el escritorio</div>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Para arrancar</div>
-  <h2 class="slide-title">¿Qué es <span>Linux</span>, realmente?</h2>
-  <div class="topic-list">
-    <div class="topic-item">Kernel<span class="note">El núcleo: gestiona hardware, procesos y memoria</span></div>
-    <div class="topic-item">Bootloader<span class="note">Qué arranca antes que el sistema (GRUB, systemd-boot)</span></div>
-    <div class="topic-item">Desktop Environment<span class="note">La interfaz gráfica: GNOME, KDE Plasma, XFCE...</span></div>
-    <div class="topic-item">Gestor de paquetes<span class="note">Cómo se instala y actualiza software</span></div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Módulo 1 · Distribuciones</div>
-  <h2 class="slide-title">Un kernel, <span>muchos sabores</span></h2>
-  <p class="slide-sub">Cada distribución empaqueta el kernel con sus propias herramientas, filosofía y público.</p>
-  <div class="logo-grid">
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/ubuntu.svg')"></div><span>Ubuntu</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/linuxmint.svg')"></div><span>Linux Mint</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/zorinos.svg')"></div><span>Zorin OS</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/fedora.svg')"></div><span>Fedora</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/debian.svg')"></div><span>Debian</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/redhat.svg')"></div><span>Red Hat</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/cachyos.svg')"></div><span>CachyOS</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/bazzite.svg')"></div><span>Bazzite</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/steamos.svg')"></div><span>SteamOS</span></div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Cómo elegir una distro</div>
-  <h2 class="slide-title">Modelos de lanzamiento y <span>arquitecturas</span></h2>
+  <div class="kicker">¿Cómo se arma un comando?</div>
+  <h2 class="slide-title">La sintaxis y tipos de comandos</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3>Modelos de lanzamiento</h3>
+      <h3>Sintaxis</h3>
       <ul>
-        <li>Estable</li>
-        <li>LTS (soporte extendido)</li>
-        <li>Rolling release</li>
+        <li><code class="code-pill">comando [flags] [argumentos]</code></li>
+        <li class="example-line">Ejemplo: <code class="code-pill">ls -la /home</code></li>
       </ul>
     </div>
     <div class="col-card">
-      <h3>Arquitecturas</h3>
+      <h3>Tipos de comandos</h3>
       <ul>
-        <li>x86 / x86_64</li>
-        <li>ARM</li>
-        <li>Otras arquitecturas actuales</li>
+        <li>Internos (built-in): son parte del propio shell.</li>
+        <li class="example-line">Ejemplo: <code class="cmd-pill">cd</code></li>
+        <li>Externos: son programas independientes.</li>
+        <li class="example-line">Ejemplo: <code class="cmd-pill">ls</code></li>
       </ul>
     </div>
   </div>
@@ -136,113 +59,24 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Presencia actual</div>
-  <h2 class="slide-title">¿En dónde vive <span>Linux</span> hoy?</h2>
-  <p class="slide-sub">Respuesta corta: en todo.</p>
-  <div class="topic-list">
-    <div class="topic-item">Servidores y la nube<span class="note">La gran mayoría de internet corre sobre Linux</span></div>
-    <div class="topic-item">Android<span class="note">Un kernel Linux debajo de todo</span></div>
-    <div class="topic-item">Sistemas embebidos<span class="note">Routers, TVs, electrodomésticos</span></div>
-    <div class="topic-item">Clústeres de alto rendimiento (HPC)<span class="note">Prácticamente el 100% del Top500 mundial</span></div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">¿Diferentes sistemas operativos?</div>
-  <h2 class="slide-title"><span>Linux</span> y <span>BSD</span></h2>
-  <div class="compare-grid">
-    <div class="compare-card">
-      <span class="tag">Licencia GPL</span>
-      <h3>Linux</h3>
-      <ul>
-        <li>Copyleft: las modificaciones deben compartirse</li>
-        <li>Enorme ecosistema de distribuciones</li>
-      </ul>
-    </div>
-    <div class="compare-card">
-      <span class="tag">Licencia BSD</span>
-      <h3>FreeBSD y familia</h3>
-      <ul>
-        <li>Permisiva: se puede modificar sin publicar el código</li>
-        <li>Atractiva para productos comerciales cerrados</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout"><strong>Dato curioso:</strong> la Switch usa parte del código de BSD, pero el kernel (Horizon) es propio de Nintendo.</div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Formas de interactuar</div>
-  <h2 class="slide-title"><span>GUI</span> vs <span>CLI</span></h2>
+  <div class="kicker">Organización</div>
+  <h2 class="slide-title">El sistema de archivos es un solo árbol</h2>
+  <p class="slide-sub">Linux organiza todo bajo una raíz: <code class="code-pill">/</code>. No usa letras como <code class="code-pill">C:</code> o <code class="code-pill">D:</code>.</p>
   <div class="two-col">
     <div class="col-card">
-      <h3>GUI</h3>
+      <h3>En Windows</h3>
       <ul>
-        <li>Interfaz gráfica de usuario</li>
-        <li>Intuitiva, visual</li>
-        <li>Limitada para automatizar</li>
+        <li>Cada disco suele aparecer con una letra.</li>
+        <li>Ejemplo: <code class="code-pill">C:\Usuarios</code></li>
+        <li>Ejemplo: <code class="code-pill">D:\Juegos</code></li>
       </ul>
     </div>
     <div class="col-card">
-      <h3>CLI</h3>
+      <h3>En Linux</h3>
       <ul>
-        <li>Interfaz de línea de comandos</li>
-        <li>Uso de recursos reducido</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="question-slide">
-  <div class="question-tag">Gaming en Linux</div>
-  <div class="question-text">¿Por qué <span class="hl">SteamOS</span> no es la solución al gaming en Linux?</div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">¿Es Wine un emulador?</div>
-  <h2 class="slide-title"><span>Proton</span>: correr juegos de Windows en Linux</h2>
-  <div class="topic-list">
-    <div class="topic-item">Wine<span class="note">Capa de compatibilidad: traduce llamadas de Windows a Linux</span></div>
-    <div class="topic-item">Valve<span class="note">La empresa detrás de Steam y del impulso al gaming en Linux</span></div>
-    <div class="topic-item">Proton<span class="note">La versión de Wine de Valve, optimizada para juegos</span></div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">¿Cuál es el panorama?</div>
-  <h2 class="slide-title">Drivers gráficos: <span>AMD, NVIDIA e Intel</span></h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3>Drivers de código abierto</h3>
-      <ul>
-        <li>Mesa · implementación abierta de OpenGL/Vulkan</li>
-        <li>Nouveau · driver libre para tarjetas NVIDIA</li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3>Fabricantes</h3>
-      <ul>
-        <li>AMD · buen soporte open source</li>
-        <li>Intel · integrado, buen soporte open source</li>
-        <li>NVIDIA · históricamente más cerrado</li>
+        <li>Todo cuelga desde <code class="code-pill">/</code>.</li>
+        <li>Un disco o partición puede “montarse” dentro del árbol.</li>
+        <li><code class="code-pill">/</code> y <code class="code-pill">/home</code> pueden estar en particiones diferentes.</li>
       </ul>
     </div>
   </div>
@@ -253,53 +87,21 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Preparando el entorno</div>
-  <h2 class="slide-title">Virtualización: <span>nuestra herramienta de práctica</span></h2>
-  <p class="slide-sub">Se permite cualquier máquina virtual (VM) en el curso.</p>
-  <div class="compare-grid">
-    <div class="compare-card highlight">
-      <span class="tag">Recomendada</span>
-      <h3>Hyper-V</h3>
-      <ul>
-        <li>Hipervisor tipo 1: corre directo sobre el hardware</li>
-        <li>Integrado en Windows, sin instalar nada extra</li>
-        <li>Buena integración con WSL2</li>
-      </ul>
-    </div>
-    <div class="compare-card">
-      <span class="tag">También válida</span>
-      <h3>VirtualBox</h3>
-      <ul>
-        <li>Hipervisor tipo 2: corre sobre el sistema operativo</li>
-        <li>Multiplataforma y gratuito</li>
-        <li>No convive bien con Hyper-V activo</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Confianza en lo que descargas</div>
-  <h2 class="slide-title">Verificación de <span>integridad</span></h2>
-  <p class="slide-sub">Antes de instalar cualquier distro comprobamos que el archivo no fue alterado — la primera vez lo haremos desde Windows.</p>
-  <div class="win-window">
-    <div class="win-header">
-      <div class="win-title"><span class="win-icon"></span> Windows PowerShell</div>
-      <div class="win-controls">
-        <div class="win-btn">−</div>
-        <div class="win-btn">▢</div>
-        <div class="win-btn close">×</div>
+  <div class="kicker">Ubicación</div>
+  <h2 class="slide-title"><code class="cmd-pill">pwd</code>: ¿Contexto? ¿Dónde estoy?</h2>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash — konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
       </div>
     </div>
-    <div class="win-body">
-      <div class="term-line"><span class="win-prompt">PS C:\Users\diblo&gt;</span> Get-FileHash .\ubuntu-24.04.iso -Algorithm SHA256</div>
-      <div class="term-line win-out">Algorithm  Hash                                                              Path</div>
-      <div class="term-line win-out">---------  ----                                                              ----</div>
-      <div class="term-line win-out">SHA256     A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2  ubuntu-24.04.iso</div>
+    <div class="term-body pwd-demo">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">pwd</span></div>
+      <div v-click="1" class="enter-key">Enter ↵</div>
+      <div v-click="2" class="term-line term-out">/home/darobles</div>
     </div>
   </div>
 </div>
@@ -309,8 +111,36 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Primer comando</div>
-  <h2 class="slide-title"><span>uname</span>: preguntándole al sistema quién es</h2>
+  <div class="kicker">Desplazamiento entre directorios</div>
+  <h2 class="slide-title">Ruta absoluta vs Ruta relativa</h2>
+  <p class="slide-sub">Si empieza con <code class="code-pill">/</code>, es absoluta. Caso contrario, se considera relativa.</p>
+  <div class="two-col">
+    <div class="col-card">
+      <h3>Ruta absoluta</h3>
+      <ul>
+        <li>Empieza con <code class="code-pill">/</code></li>
+        <li>Esta siempre apunta a un mismo lugar, no importa en qué directorio se esté</li>
+        <li>Ejemplo: <code class="code-pill">cd /home/darobles/Documentos</code></li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>Ruta relativa</h3>
+      <ul>
+        <li>No empieza con <code class="code-pill">/</code></li>
+        <li>Directorio actual sí es relevante</li>
+        <li><code class="code-pill">.</code> es aquí mismo, <code class="code-pill">..</code> es un directorio atrás</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Listar contenido</div>
+  <h2 class="slide-title">El comando <code class="cmd-pill">ls</code></h2>
   <div class="term-window">
     <div class="term-header">
       <div class="term-title">bash — konsole</div>
@@ -321,26 +151,110 @@ fonts:
       </div>
     </div>
     <div class="term-body">
-      <div v-click="1">
-        <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">uname</span> <span v-mark.circle.red="4">-a</span></div>
-        <div class="term-line term-out">Linux dicachy 7.1.2-1-cachyos-bore #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux</div>
-      </div>
-      <div v-click="2" style="margin-top:10px">
-        <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">uname</span> <span v-mark.circle.red="5">-r</span></div>
-        <div class="term-line term-out">7.1.2-1-cachyos-bore</div>
-      </div>
-      <div v-click="3" style="margin-top:10px">
-        <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">uname</span> <span v-mark.circle.red="6">-m</span></div>
-        <div class="term-line term-out">x86_64</div>
-      </div>
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span></div>
+      <div class="term-line term-out">Documentos  Descargas  Imagenes</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-la</span></div>
+      <div class="term-line term-out">drwxr-xr-x  darobles darobles  .config</div>
+      <div class="term-line term-out">-rw-r--r--  darobles darobles  .bashrc</div>
     </div>
   </div>
-  <div v-click="7" class="callout"><strong>Nota:</strong> esos guiones con letra (<code>-a</code>, <code>-r</code>, <code>-m</code>) se llaman <em>flags</em>. Se van a ver con mayor detalle en próximas clases.</div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Árbol de directorios</div>
+  <h2 class="slide-title">El comando <code class="cmd-pill">tree</code></h2>
+  <p class="slide-sub"><code class="cmd-pill">tree</code> muestra carpetas y archivos como un árbol visual.</p>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash — konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
+      </div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">tree</span> <span class="term-flag">Documentos</span></div>
+      <div class="term-line term-out">Documentos</div>
+      <div class="term-line term-out">├── tareas</div>
+      <div class="term-line term-out">│   └── linux.txt</div>
+      <div class="term-line term-out">└── notas.txt</div>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Convenciones</div>
+  <h2 class="slide-title">Archivos <span>ocultos</span> y el directorio <span>Home</span></h2>
+  <div class="topic-list">
+    <div class="topic-item">¿Su nombre empieza con <code class="code-pill">.</code>?<span class="note">Todo archivo o carpeta que empieza con <code class="code-pill">.</code> está oculto por convención. Ejemplo: <code class="code-pill">.gitignore</code></span></div>
+    <div class="topic-item"><code class="code-pill">~</code><span class="note">Atajo para tu directorio Home. En inglés se le suele llamar <em>tilde</em>. Equivale a <code class="code-pill">/home/usuario</code></span></div>
+  </div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Búsqueda por patrón</div>
+  <h2 class="slide-title">Comodín en los directorios (<span>wildcards</span>)</h2>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash — konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
+      </div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">*.txt</span></div>
+      <div class="term-line term-out">notas.txt  tarea1.txt</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">tarea?.txt</span></div>
+      <div class="term-line term-out">tarea1.txt</div>
+    </div>
+  </div>
+  <div class="callout"><strong>Resumen:</strong> <code>*</code> reemplaza a cualquier cantidad de caracteres, <code>?</code> reemplaza exactamente uno.</div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Ayudas disponibles</div>
+  <h2 class="slide-title">Comando <code class="cmd-pill">man</code> y el flag <code class="cmd-pill">--help</code></h2>
+  <p class="slide-sub"><code class="cmd-pill">man</code> es documentación, <code class="cmd-pill">--help</code> es una guía o resumen más corto.</p>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash — konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
+      </div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">man</span> <span class="term-flag">ls</span></div>
+      <div class="term-line term-out">Abre el manual completo del comando</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">--help</span></div>
+      <div class="term-line term-out">Muestra un resumen rápido de flags</div>
+    </div>
+  </div>
 </div>
 
 ---
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux</div>
+  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 2</div>
 </div>
