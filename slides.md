@@ -1,6 +1,6 @@
 ---
 theme: default
-title: Fundamentos de Linux - Clase 2
+title: Fundamentos de Linux - Clase 3
 drawings:
   persist: false
 transition: fade
@@ -10,17 +10,19 @@ fonts:
 ---
 
 <div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 2 · Fundamentos de Linux</div>
+  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 3 · Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
-      <h1 class="hero-title">Navegación y <span>la terminal</span></h1>
-      <p class="subtitle">Moverse entre carpetas (directorios), ver y buscar archivos desde una terminal.</p>
+      <h1 class="hero-title">Manipulación de <span>archivos</span></h1>
+      <p class="subtitle">Crear, copiar, mover, eliminar y buscar archivos desde la terminal.</p>
       <div class="agenda">
-        <div class="agenda-item">La terminal y la sintaxis de los comandos</div>
-        <div class="agenda-item">Ubicarse y moverse a través de directorios (<code class="cmd-pill">pwd</code> y <code class="cmd-pill">cd</code>)</div>
-        <div class="agenda-item">Listar archivos en un directorio</div>
-        <div class="agenda-item">Ayuda y documentación (<code class="cmd-pill">man</code> y <code class="cmd-pill">--help</code>)</div>
+        <div class="agenda-item">Creación de archivos y directorios (<code class="cmd-pill">mkdir</code> y <code class="cmd-pill">touch</code>)</div>
+        <div class="agenda-item">Copiar y mover archivos (<code class="cmd-pill">cp</code> y <code class="cmd-pill">mv</code>)</div>
+        <div class="agenda-item">Eliminar archivos y directorios (<code class="cmd-pill">rm</code> y <code class="cmd-pill">rmdir</code>)</div>
+        <div class="agenda-item">Ver y editar el contenido de un archivo</div>
+        <div class="agenda-item">Buscar archivos (<code class="cmd-pill">locate</code> y <code class="cmd-pill">find</code>)</div>
+        <div class="agenda-item">Agrupar, comprimir y enlazar archivos</div>
       </div>
     </div>
   </div>
@@ -32,23 +34,21 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">¿Cómo se arma un comando?</div>
-  <h2 class="slide-title">La sintaxis y tipos de comandos</h2>
+  <div class="kicker">Crear</div>
+  <h2 class="slide-title">Creación de archivos y directorios</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3>Sintaxis</h3>
+      <h3 class="plain-case"><code class="cmd-pill">mkdir</code></h3>
       <ul>
-        <li><code class="code-pill">comando [flags] [argumentos]</code></li>
-        <li class="example-line">Ejemplo: <code class="code-pill">ls -la /home</code></li>
+        <li>Crea un directorio nuevo.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">mkdir semana3</code></li>
       </ul>
     </div>
     <div class="col-card">
-      <h3>Tipos de comandos</h3>
+      <h3 class="plain-case"><code class="cmd-pill">touch</code></h3>
       <ul>
-        <li>Internos (built-in): son parte del propio shell.</li>
-        <li class="example-line">Ejemplo: <code class="cmd-pill">cd</code></li>
-        <li>Externos: son programas independientes.</li>
-        <li class="example-line">Ejemplo: <code class="cmd-pill">ls</code></li>
+        <li>Crea un archivo vacío, o actualiza su fecha si ya existe.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">touch semana3.txt</code></li>
       </ul>
     </div>
   </div>
@@ -59,24 +59,23 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Organización</div>
-  <h2 class="slide-title">El sistema de archivos es un solo árbol</h2>
-  <p class="slide-sub">Linux organiza todo bajo una raíz: <code class="code-pill">/</code>. No usa letras como <code class="code-pill">C:</code> o <code class="code-pill">D:</code>.</p>
+  <div class="kicker">Duplicar y reubicar</div>
+  <h2 class="slide-title">Copiar y mover archivos</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3>En Windows</h3>
+      <h3 class="plain-case"><code class="cmd-pill">cp</code></h3>
       <ul>
-        <li>Cada disco suele aparecer con una letra.</li>
-        <li>Ejemplo: <code class="code-pill">C:\Usuarios</code></li>
-        <li>Ejemplo: <code class="code-pill">D:\Juegos</code></li>
+        <li>Copia un archivo o carpeta a otro lugar.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">cp semana3.txt respaldo.txt</code></li>
+        <li>El archivo original se mantiene igual.</li>
       </ul>
     </div>
     <div class="col-card">
-      <h3>En Linux</h3>
+      <h3 class="plain-case"><code class="cmd-pill">mv</code></h3>
       <ul>
-        <li>Todo cuelga desde <code class="code-pill">/</code>.</li>
-        <li>Un disco o partición puede “montarse” dentro del árbol.</li>
-        <li><code class="code-pill">/</code> y <code class="code-pill">/home</code> pueden estar en particiones diferentes.</li>
+        <li>Mueve un archivo o carpeta a otro lugar.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">mv semana3.txt Documentos/</code></li>
+        <li>También sirve para renombrar, es la misma operación.</li>
       </ul>
     </div>
   </div>
@@ -87,48 +86,23 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Ubicación</div>
-  <h2 class="slide-title"><code class="cmd-pill">pwd</code>: ¿Contexto? ¿Dónde estoy?</h2>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
-    </div>
-    <div class="term-body pwd-demo">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">pwd</span></div>
-      <div v-click="1" class="enter-key">Enter ↵</div>
-      <div v-click="2" class="term-line term-out">/home/darobles</div>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Desplazamiento entre directorios</div>
-  <h2 class="slide-title">Ruta absoluta vs Ruta relativa</h2>
-  <p class="slide-sub">Si empieza con <code class="code-pill">/</code>, es absoluta. Caso contrario, se considera relativa.</p>
+  <div class="kicker">Eliminar</div>
+  <h2 class="slide-title">Eliminar archivos y directorios</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3>Ruta absoluta</h3>
+      <h3 class="plain-case"><code class="cmd-pill">rm</code></h3>
       <ul>
-        <li>Empieza con <code class="code-pill">/</code></li>
-        <li>Esta siempre apunta a un mismo lugar, no importa en qué directorio se esté</li>
-        <li>Ejemplo: <code class="code-pill">cd /home/darobles/Documentos</code></li>
+        <li>Elimina archivos.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">rm semana3.txt</code></li>
+        <li>No existe una papelera de reciclaje en la terminal.</li>
       </ul>
     </div>
     <div class="col-card">
-      <h3>Ruta relativa</h3>
+      <h3 class="plain-case"><code class="cmd-pill">rmdir</code></h3>
       <ul>
-        <li>No empieza con <code class="code-pill">/</code></li>
-        <li>Directorio actual sí es relevante</li>
-        <li><code class="code-pill">.</code> es aquí mismo, <code class="code-pill">..</code> es un directorio atrás</li>
+        <li>Elimina un directorio, solo si está vacío.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">rmdir semana3</code></li>
+        <li>Si tiene contenido adentro, no lo va a eliminar por defecto.</li>
       </ul>
     </div>
   </div>
@@ -139,8 +113,8 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Listar contenido</div>
-  <h2 class="slide-title">El comando <code class="cmd-pill">ls</code></h2>
+  <div class="kicker">Lectura</div>
+  <h2 class="slide-title">Ver el contenido de un archivo</h2>
   <div class="term-window">
     <div class="term-header">
       <div class="term-title">bash — konsole</div>
@@ -151,11 +125,39 @@ fonts:
       </div>
     </div>
     <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span></div>
-      <div class="term-line term-out">Documentos  Descargas  Imagenes</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-la</span></div>
-      <div class="term-line term-out">drwxr-xr-x  darobles darobles  .config</div>
-      <div class="term-line term-out">-rw-r--r--  darobles darobles  .bashrc</div>
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">cat</span> <span class="term-flag">notas.txt</span></div>
+      <div class="term-line term-out">Imprime todo el contenido</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">less</span> <span class="term-flag">notas.txt</span></div>
+      <div class="term-line term-out">Muestra el contenido una página a la vez</div>
+    </div>
+  </div>
+  <p class="mini-note"><strong>Nota:</strong> less es en sí mismo un lector, usa q para salir, f para avanzar y b para retroceder.</p>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Editar</div>
+  <h2 class="slide-title">¿Cómo se modifican los archivos?</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3 class="plain-case">nano y Micro</h3>
+      <ul>
+        <li>Editores simples.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">nano notas.txt</code></li>
+        <li>Los atajos disponibles se muestran en pantalla.</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3 class="plain-case">vim</h3>
+      <ul>
+        <li>Editor más potente, con más funciones.</li>
+        <li>Su curva de aprendizaje es más alta.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">vim notas.txt</code></li>
+        <li>No es necesario dominarlo por ahora.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -165,24 +167,24 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Árbol de directorios</div>
-  <h2 class="slide-title">El comando <code class="cmd-pill">tree</code></h2>
-  <p class="slide-sub"><code class="cmd-pill">tree</code> muestra carpetas y archivos como un árbol visual.</p>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
+  <div class="kicker">Búsqueda</div>
+  <h2 class="slide-title">Buscar archivos en el sistema</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3 class="plain-case"><code class="cmd-pill">locate</code></h3>
+      <ul>
+        <li>Busca pasiva o con caché.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">locate semana3.txt</code></li>
+        <li>Rápido.</li>
+      </ul>
     </div>
-    <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">tree</span> <span class="term-flag">Documentos</span></div>
-      <div class="term-line term-out">Documentos</div>
-      <div class="term-line term-out">├── tareas</div>
-      <div class="term-line term-out">│   └── linux.txt</div>
-      <div class="term-line term-out">└── notas.txt</div>
+    <div class="col-card">
+      <h3 class="plain-case"><code class="cmd-pill">find</code></h3>
+      <ul>
+        <li>Busca activa y actual.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">find . -name "*.txt"</code></li>
+        <li>Lento.</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -192,11 +194,39 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Convenciones</div>
-  <h2 class="slide-title">Archivos <span>ocultos</span> y el directorio <span>Home</span></h2>
+  <div class="kicker">zip y tar</div>
+  <h2 class="slide-title">Agrupar y comprimir archivos</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3 class="plain-case">Agrupar</h3>
+      <ul>
+        <li>Junta varios archivos en uno solo.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">tar -cvf carpeta.tar carpeta/</code></li>
+        <li>No implica reducción de tamaño.</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3 class="plain-case">Comprimir</h3>
+      <ul>
+        <li>Reduce el tamaño.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">zip -r carpeta.zip carpeta/</code></li>
+        <li>Este puede tener una contraseña o clave de cifrado.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Atajos</div>
+  <h2 class="slide-title">Enlaces simbólicos (<span>symlinks</span>)</h2>
   <div class="topic-list">
-    <div class="topic-item">¿Su nombre empieza con <code class="code-pill">.</code>?<span class="note">Todo archivo o carpeta que empieza con <code class="code-pill">.</code> está oculto por convención. Ejemplo: <code class="code-pill">.gitignore</code></span></div>
-    <div class="topic-item"><code class="code-pill">~</code><span class="note">Atajo para tu directorio Home. En inglés se le suele llamar <em>tilde</em>. Equivale a <code class="code-pill">/home/usuario</code></span></div>
+    <div class="topic-item">¿Qué es?<span class="note">Un archivo especial que apunta hacia otro archivo o carpeta, parecido a un acceso directo. Se crea con <code class="code-pill">ln -s</code></span></div>
+    <div class="topic-item">¿Para qué sirve?<span class="note">Permite acceder al mismo archivo desde varias rutas distintas, sin duplicar su contenido</span></div>
+    <div class="topic-item">¿Cómo se usa?<span class="note">Se crea con <code class="code-pill">ln -s semana3.txt acceso.txt</code> y ahora podemos usarlo comos si fuera el original <code class="code-pill">cat acceso.txt</code></span></div>
   </div>
 </div>
 
@@ -205,56 +235,32 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Búsqueda por patrón</div>
-  <h2 class="slide-title">Comodín en los directorios (<span>wildcards</span>)</h2>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
+  <div class="kicker">Repositorios</div>
+  <h2 class="slide-title">Cómo se distribuye el software en Linux</h2>
+  <div class="two-col">
+    <div class="col-card">
+      <h3 class="plain-case">Basadas en Debian o Ubuntu</h3>
+      <ul>
+        <li>Usan <code class="cmd-pill">apt</code> para instalar y actualizar programas.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">sudo apt install nombre-programa</code></li>
+        <li class="example-line">Actualizar el sistema: <code class="code-pill">sudo apt update && sudo apt upgrade</code></li>
+      </ul>
     </div>
-    <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">*.txt</span></div>
-      <div class="term-line term-out">notas.txt  tarea1.txt</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">tarea?.txt</span></div>
-      <div class="term-line term-out">tarea1.txt</div>
-    </div>
-  </div>
-  <div class="callout"><strong>Resumen:</strong> <code>*</code> reemplaza a cualquier cantidad de caracteres, <code>?</code> reemplaza exactamente uno.</div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Ayudas disponibles</div>
-  <h2 class="slide-title">Comando <code class="cmd-pill">man</code> y el flag <code class="cmd-pill">--help</code></h2>
-  <p class="slide-sub"><code class="cmd-pill">man</code> es documentación, <code class="cmd-pill">--help</code> es una guía o resumen más corto.</p>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
-    </div>
-    <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">man</span> <span class="term-flag">ls</span></div>
-      <div class="term-line term-out">Abre el manual completo del comando</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">--help</span></div>
-      <div class="term-line term-out">Muestra un resumen rápido de flags</div>
+    <div class="col-card">
+      <h3 class="plain-case">Basadas en RedHat o Fedora</h3>
+      <ul>
+        <li>Usan <code class="cmd-pill">dnf</code>.</li>
+        <li class="example-line">Ejemplo: <code class="code-pill">sudo dnf install nombre-programa</code></li>
+        <li class="example-line">Actualizar el sistema: <code class="code-pill">sudo dnf upgrade</code></li>
+      </ul>
     </div>
   </div>
+  <p class="mini-note"><strong>Nota:</strong> Como se mencionó en la primera clase, si la distribución tiene un "papá" esta suele heredar sus repositorios y gestores de software, si no tienen un papá, suelen tener uno propio. Ejemplos de distribuciones que usan su propio gestor: Solus, Void Linux...</p>
 </div>
 
 ---
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 2</div>
+  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 3</div>
 </div>

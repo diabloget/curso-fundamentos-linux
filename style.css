@@ -261,6 +261,17 @@
   max-width: 640px;
 }
 
+.mini-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 12.5px;
+  max-width: 620px;
+}
+
+.mini-note strong {
+  color: var(--text);
+}
+
 .mini-corner {
   position: absolute;
   right: 0;
@@ -405,6 +416,11 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 10px;
+}
+
+.col-card h3.plain-case {
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 .col-card ul {
