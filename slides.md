@@ -1,6 +1,6 @@
 ---
 theme: default
-title: Fundamentos de Linux - Clase 4
+title: Fundamentos de Linux - Clase 5
 drawings:
   persist: false
 transition: fade
@@ -10,19 +10,18 @@ fonts:
 ---
 
 <div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 4 · Fundamentos de Linux</div>
+  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 5 · Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
-      <h1 class="hero-title">Usuarios y <span>permisos</span></h1>
-      <p class="subtitle">Entender quién puede leer, modificar o ejecutar archivos.</p>
+      <h1 class="hero-title">Sistema y <span>procesamiento</span> de entradas y salidas</h1>
+      <p class="subtitle">Explorar la estructura de Linux y combinar comandos desde la terminal.</p>
       <div class="agenda">
-        <div class="agenda-item">Usuarios, grupos y creación de cuentas</div>
-        <div class="agenda-item">El usuario <code class="cmd-pill">root</code> y privilegios con <code class="cmd-pill">sudo</code></div>
-        <div class="agenda-item">Propietarios y permisos de archivos</div>
-        <div class="agenda-item">Cambiar permisos con <code class="cmd-pill">chmod</code></div>
-        <div class="agenda-item">Cambiar propietario con <code class="cmd-pill">chown</code></div>
-        <div class="agenda-item">Enlaces simbólicos y buenas prácticas</div>
+        <div class="agenda-item">Filesystem Hierarchy y directorios principales</div>
+        <div class="agenda-item">Redirecciones (<code class="cmd-pill">&gt;</code>, <code class="cmd-pill">&gt;&gt;</code> y <code class="cmd-pill">&lt;</code>)</div>
+        <div class="agenda-item">Pipes y composición de comandos</div>
+        <div class="agenda-item">Búsqueda con <code class="cmd-pill">grep</code></div>
+        <div class="agenda-item">Introducción a expresiones regulares</div>
       </div>
     </div>
   </div>
@@ -34,11 +33,11 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Identidad</div>
-  <h2 class="slide-title">¿Quién está usando el sistema?</h2>
+  <div class="kicker">Filesystem</div>
+  <h2 class="slide-title">¿Dónde viven los archivos en Linux?</h2>
   <div class="term-window">
     <div class="term-header">
-      <div class="term-title">bash — konsole</div>
+      <div class="term-title">bash - konsole</div>
       <div class="term-controls">
         <div class="term-btn">−</div>
         <div class="term-btn">▢</div>
@@ -46,13 +45,11 @@ fonts:
       </div>
     </div>
     <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">whoami</span></div>
-      <div class="term-line term-out">diblo</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">id</span></div>
-      <div class="term-line term-out">uid=1000(diblo) gid=1000(diblo) grupos=1000(diblo),10(wheel)</div>
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">/</span></div>
+      <div class="term-line term-out">bin  etc  home  tmp  usr  var  opt  root</div>
     </div>
   </div>
-  <p class="mini-note"><strong>Nota</strong> Linux no trabaja exclusivamente con «personas». Los usuarios también existen para servicios o tareas del sistema.</p>
+  <p class="mini-note"><strong>Nota:</strong> Recordemos que todo comienza desde el directorio raíz <code class="code-pill">/</code>.</p>
 </div>
 
 ---
@@ -60,105 +57,14 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Grupos</div>
-  <h2 class="slide-title">Usuarios dentro de grupos</h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3 class="plain-case"><code class="cmd-pill">groups</code></h3>
-      <ul>
-        <li>Muestra los grupos a los que pertenece un usuario.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">groups diblo</code></li>
-        <li>Los grupos permiten compartir permisos entre varias cuentas.</li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3 class="plain-case"><code class="cmd-pill">id</code></h3>
-      <ul>
-        <li>Muestra el identificador del usuario y sus grupos.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">id diblo</code></li>
-        <li>UID identifica usuarios. GID identifica grupos.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Administración</div>
-  <h2 class="slide-title">Crear usuarios y asignar grupos</h2>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
-    </div>
-    <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">sudo</span> <span class="term-flag">useradd -m priscilla</span></div>
-      <div class="term-line term-out">Crea el usuario y su directorio Home</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">sudo</span> <span class="term-flag">usermod -aG proyecto priscilla</span></div>
-      <div class="term-line term-out">Agrega priscilla al grupo proyecto</div>
-    </div>
-  </div>
-  <p class="mini-note"><strong>Nota</strong> Al ejecutar estos comandos en una computadora personal o servidor se modifica la configuración del sistema operativo. Aunque algunos ejemplos sean pequeños, crear usuarios o cambiar permisos puede abrir una vulnerabilidad que permita a otra persona o programa acceder a archivos sensibles o utilizar <code class="code-pill">sudo</code>.</p>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Privilegios</div>
-  <h2 class="slide-title">El usuario <code class="cmd-pill">root</code> y <code class="cmd-pill">sudo</code></h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3 class="plain-case"><code class="cmd-pill">root</code></h3>
-      <ul>
-        <li>Es la cuenta administrativa principal del sistema.</li>
-        <li>Puede modificar casi cualquier archivo o configuración.</li>
-        <li>No es recomendable trabajar siempre como root.</li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3 class="plain-case"><code class="cmd-pill">sudo</code></h3>
-      <ul>
-        <li>Ejecuta temporalmente un comando con permisos elevados.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">sudo dnf install tree</code></li>
-        <li>Permite ejecutar temporalmente un comando como <code class="cmd-pill">root</code>, si la configuración de <code class="cmd-pill">sudo</code> lo autoriza.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Propiedad</div>
-  <h2 class="slide-title">¿Quién es dueño de un archivo?</h2>
-  <div class="term-window">
-    <div class="term-header">
-      <div class="term-title">bash — konsole</div>
-      <div class="term-controls">
-        <div class="term-btn">−</div>
-        <div class="term-btn">▢</div>
-        <div class="term-btn close">×</div>
-      </div>
-    </div>
-    <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-l reporte.txt</span></div>
-      <div class="term-line term-out">-rw-r--r-- 1 diblo diblo 0 jul 13 20:15 reporte.txt</div>
-    </div>
-  </div>
+  <div class="kicker">Directorios</div>
+  <h2 class="slide-title">Directorios importantes</h2>
   <div class="topic-list">
-    <div class="topic-item"><code class="code-pill">diblo</code><span class="note">Primer nombre después del tamaño de enlaces. Representa al usuario propietario.</span></div>
-    <div class="topic-item"><code class="code-pill">diblo</code><span class="note">Segundo nombre. Representa al grupo propietario.</span></div>
+    <div class="topic-item"><code class="code-pill">/home</code><span class="note">Archivos personales de los usuarios.</span></div>
+    <div class="topic-item"><code class="code-pill">/etc</code><span class="note">Configuración del sistema y de muchos servicios.</span></div>
+    <div class="topic-item"><code class="code-pill">/var</code><span class="note">Logs y datos que cambian con frecuencia.</span></div>
+    <div class="topic-item"><code class="code-pill">/usr/bin</code><span class="note">Programas disponibles para los usuarios.</span></div>
+    <div class="topic-item"><code class="code-pill">/tmp</code><span class="note">Archivos temporales. Su contenido puede borrarse automáticamente.</span></div>
   </div>
 </div>
 
@@ -167,25 +73,12 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Permisos</div>
-  <h2 class="slide-title">Lectura, escritura y ejecución</h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3 class="plain-case"><code class="code-pill">rwx</code></h3>
-      <ul>
-        <li><code class="code-pill">r</code> permite leer.</li>
-        <li><code class="code-pill">w</code> permite modificar.</li>
-        <li><code class="code-pill">x</code> permite ejecutar o entrar a un directorio.</li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3 class="plain-case"><code class="code-pill">rwx r-x r--</code></h3>
-      <ul>
-        <li>Primer bloque para el usuario propietario.</li>
-        <li>Segundo bloque para el grupo propietario.</li>
-        <li>Tercer bloque para los demás usuarios.</li>
-      </ul>
-    </div>
+  <div class="kicker">Entradas y salidas</div>
+  <h2 class="slide-title">Tipos de salidas</h2>
+  <div class="topic-list">
+    <div class="topic-item"><code class="cmd-pill">stdin</code><span class="note">Entrada estándar. Normalmente viene del teclado o de otro comando.</span></div>
+    <div class="topic-item"><code class="cmd-pill">stdout</code><span class="note">Salida estándar. Normalmente se muestra en la terminal.</span></div>
+    <div class="topic-item"><code class="cmd-pill">stderr</code><span class="note">Salida de error. Se usa para mensajes de error o advertencias.</span></div>
   </div>
 </div>
 
@@ -194,11 +87,11 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Cambiar permisos</div>
-  <h2 class="slide-title">El comando <code class="cmd-pill">chmod</code></h2>
+  <div class="kicker">Redirecciones</div>
+  <h2 class="slide-title">Redireccionar entradas y salidas</h2>
   <div class="term-window">
     <div class="term-header">
-      <div class="term-title">bash — konsole</div>
+      <div class="term-title">bash - konsole</div>
       <div class="term-controls">
         <div class="term-btn">−</div>
         <div class="term-btn">▢</div>
@@ -206,38 +99,12 @@ fonts:
       </div>
     </div>
     <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">chmod</span> <span class="term-flag">u+x script.sh</span></div>
-      <div class="term-line term-out">Agrega ejecución al usuario propietario</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">chmod</span> <span class="term-flag">g-w reporte.txt</span></div>
-      <div class="term-line term-out">Quita escritura al grupo propietario</div>
-    </div>
-  </div>
-  <p class="mini-note"><strong>Nota</strong> Usamos <code class="code-pill">u</code>, <code class="code-pill">g</code>, <code class="code-pill">o</code> o <code class="code-pill">a</code> junto con <code class="code-pill">+</code>, <code class="code-pill">-</code> o <code class="code-pill">=</code>.</p>
-</div>
-
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Permisos numéricos</div>
-  <h2 class="slide-title">El modo <code class="code-pill">644</code> y <code class="code-pill">755</code></h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3 class="plain-case">Valores</h3>
-      <ul>
-        <li><code class="code-pill">r = 4</code></li>
-        <li><code class="code-pill">w = 2</code></li>
-        <li><code class="code-pill">x = 1</code></li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3 class="plain-case">Ejemplos del día a día</h3>
-      <ul>
-        <li><code class="code-pill">644</code> para archivos de texto comunes.</li>
-        <li><code class="code-pill">755</code> para scripts o directorios compartidos.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">chmod 644 reporte.txt</code></li>
-      </ul>
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-l &gt; archivos.txt</span></div>
+      <div class="term-line term-out">Crea o reemplaza el contenido del archivo.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">echo</span> <span class="term-flag">"nuevo" &gt;&gt; archivos.txt</span></div>
+      <div class="term-line term-out">Agrega contenido al final.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">wc</span> <span class="term-flag">-l &lt; archivos.txt</span></div>
+      <div class="term-line term-out">Usa el archivo como entrada.</div>
     </div>
   </div>
 </div>
@@ -247,11 +114,11 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Cambiar dueño</div>
-  <h2 class="slide-title">El comando <code class="cmd-pill">chown</code></h2>
+  <div class="kicker">Pipes</div>
+  <h2 class="slide-title">Conectar comandos con <span>|</span></h2>
   <div class="term-window">
     <div class="term-header">
-      <div class="term-title">bash — konsole</div>
+      <div class="term-title">bash - konsole</div>
       <div class="term-controls">
         <div class="term-btn">−</div>
         <div class="term-btn">▢</div>
@@ -259,13 +126,13 @@ fonts:
       </div>
     </div>
     <div class="term-body">
-      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">sudo</span> <span class="term-flag">chown priscilla reporte.txt</span></div>
-      <div class="term-line term-out">Cambia el usuario propietario</div>
-      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">sudo</span> <span class="term-flag">chown priscilla:proyecto reporte.txt</span></div>
-      <div class="term-line term-out">Cambia usuario y grupo propietario</div>
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-l | grep reporte</span></div>
+      <div class="term-line term-out">Envía la salida de ls como entrada de grep.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">cat</span> <span class="term-flag">usuarios.txt | sort | uniq</span></div>
+      <div class="term-line term-out">Ordena y elimina líneas repetidas.</div>
     </div>
   </div>
-  <p class="mini-note"><strong>Nota</strong> Cambiar propietarios suele requerir privilegios administrativos.</p>
+  <p class="mini-note"><strong>Nota:</strong> El pipe conecta la salida o entrada de distintos comandos.</p>
 </div>
 
 ---
@@ -273,39 +140,40 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Atajos</div>
-  <h2 class="slide-title">Enlaces simbólicos (<span>symlinks</span>)</h2>
+  <div class="kicker">Búsqueda</div>
+  <h2 class="slide-title">Buscar texto con <code class="cmd-pill">grep</code></h2>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash - konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
+      </div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">grep</span> <span class="term-flag">"error" reporte.txt</span></div>
+      <div class="term-line term-out">Busca líneas que contienen error.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">grep</span> <span class="term-flag">-i "error" reporte.txt</span></div>
+      <div class="term-line term-out">Ignora mayúsculas y minúsculas.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">grep</span> <span class="term-flag">-n "error" reporte.txt</span></div>
+      <div class="term-line term-out">Muestra el número de línea.</div>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="content-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Expresiones regulares</div>
+  <h2 class="slide-title">Patrones básicos con <code class="cmd-pill">grep</code></h2>
   <div class="topic-list">
-    <div class="topic-item">¿Qué es?<span class="note">Un archivo especial que apunta hacia otro archivo o directorio, parecido a un acceso directo. Se crea con <code class="code-pill">ln -s</code>.</span></div>
-    <div class="topic-item">¿Para qué sirve?<span class="note">Permite acceder al mismo archivo desde otra ruta sin duplicar su contenido.</span></div>
-    <div class="topic-item">¿Cómo se usa?<span class="note"><code class="code-pill">ln -s destino nombre_enlace</code> crea el enlace y luego puede utilizarse como si fuera el archivo original.</span></div>
-  </div>
-  <p class="mini-note"><strong>Nota</strong> El enlace apunta al archivo original. No duplica su contenido.</p>
-</div>
----
-
-<div class="content-slide">
-  <div class="mini-corner"></div>
-  <div class="mini-footer"></div>
-  <div class="kicker">Atajos</div>
-  <h2 class="slide-title">Qué pasa al usar o borrar un symlink</h2>
-  <div class="two-col">
-    <div class="col-card">
-      <h3 class="plain-case">Usarlo</h3>
-      <ul>
-        <li>Leer el enlace normalmente lee el archivo original.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">cat acceso_reporte.txt</code></li>
-        <li>Si el destino no existe, el enlace queda roto.</li>
-      </ul>
-    </div>
-    <div class="col-card">
-      <h3 class="plain-case">Borrarlo</h3>
-      <ul>
-        <li>Eliminar el enlace no elimina el archivo original.</li>
-        <li class="example-line">Ejemplo <code class="code-pill">rm acceso_reporte.txt</code></li>
-        <li>Solo se borra el enlace simbólico (symlink).</li>
-      </ul>
-    </div>
+    <div class="topic-item"><code class="code-pill">grep "^reporte" *.txt</code><span class="note">Busca líneas que empiezan con reporte.</span></div>
+    <div class="topic-item"><code class="code-pill">grep "12$" *.txt</code><span class="note">Busca líneas que terminan en 12.</span></div>
+    <div class="topic-item"><code class="code-pill">grep "reporte[0-9]" *.txt</code><span class="note">Busca reporte seguido de un dígito.</span></div>
+    <div class="topic-item"><code class="code-pill">grep -E "error|warning" log.txt</code><span class="note">Busca error o warning usando patrones extendidos.</span></div>
   </div>
 </div>
 
@@ -314,12 +182,23 @@ fonts:
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Seguridad</div>
-  <h2 class="slide-title">Buenas prácticas al trabajar con permisos</h2>
-  <div class="topic-list">
-    <div class="topic-item"><code class="cmd-pill">sudo</code> solo cuando sea necesario<span class="note">Si un comando funciona sin privilegios elevados, mejor ejecutarlo como usuario normal.</span></div>
-    <div class="topic-item">Evitar <code class="code-pill">chmod 777</code><span class="note">Da permisos de lectura, escritura y ejecución a todos.</span></div>
-    <div class="topic-item">Principio del mínimo privilegio<span class="note">Cada usuario o proceso debería tener solo los permisos necesarios para su tarea.</span></div>
+  <div class="kicker">Composición</div>
+  <h2 class="slide-title">Ejemplos útiles de composición</h2>
+  <div class="term-window">
+    <div class="term-header">
+      <div class="term-title">bash - konsole</div>
+      <div class="term-controls">
+        <div class="term-btn">−</div>
+        <div class="term-btn">▢</div>
+        <div class="term-btn close">×</div>
+      </div>
+    </div>
+    <div class="term-body">
+      <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">*.txt | wc -l</span></div>
+      <div class="term-line term-out">Cuenta archivos de texto.</div>
+      <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">grep</span> <span class="term-flag">-r "error" /var/log | less</span></div>
+      <div class="term-line term-out">Busca errores en logs y permite leerlos por páginas.</div>
+    </div>
   </div>
 </div>
 
@@ -327,5 +206,5 @@ fonts:
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 4</div>
+  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 5</div>
 </div>
