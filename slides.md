@@ -1,4 +1,5 @@
 ---
+layout: none
 theme: default
 title: Fundamentos de Linux - Clase 1
 drawings:
@@ -10,7 +11,7 @@ fonts:
 ---
 
 <div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 1 · Fundamentos de Linux</div>
+  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 1 - Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
@@ -42,11 +43,13 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Historia · 1991 en adelante</div>
+  <div class="kicker">Historia - 1983 en adelante</div>
   <h2 class="slide-title">De un proyecto de estudiante a <span>todas partes</span></h2>
   <div class="timeline">
     <div class="timeline-item">
@@ -58,16 +61,18 @@ fonts:
       <div class="timeline-label">Linus Torvalds publica el primer kernel Linux</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-year">1990s</div>
-      <div class="timeline-label">GNU + Linux + distribuciones: nace el ecosistema</div>
+      <div class="timeline-year">Años 90</div>
+      <div class="timeline-label">Se popularizan las distribuciones GNU/Linux</div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-year">2000s–hoy</div>
-      <div class="timeline-label">De servidores a Android, la nube y el escritorio</div>
+      <div class="timeline-year">2000–hoy</div>
+      <div class="timeline-label">Linux llega a servidores, Android y la nube</div>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -75,35 +80,40 @@ fonts:
   <div class="mini-footer"></div>
   <div class="kicker">Para arrancar</div>
   <h2 class="slide-title">¿Qué es <span>Linux</span>, realmente?</h2>
+  <p class="slide-sub">Linux es el núcleo. Una distribución añade las herramientas para usarlo.</p>
   <div class="topic-list">
-    <div class="topic-item">Kernel<span class="note">El núcleo: gestiona hardware, procesos y memoria</span></div>
-    <div class="topic-item">Bootloader<span class="note">Qué arranca antes que el sistema (GRUB, systemd-boot)</span></div>
-    <div class="topic-item">Desktop Environment<span class="note">La interfaz gráfica: GNOME, KDE Plasma, XFCE...</span></div>
-    <div class="topic-item">Gestor de paquetes<span class="note">Cómo se instala y actualiza software</span></div>
+    <div class="topic-item">Kernel<span class="note">Gestiona hardware, memoria y procesos.</span></div>
+    <div class="topic-item">Arranque<span class="note">GRUB o systemd-boot cargan el sistema.</span></div>
+    <div class="topic-item">Entorno de escritorio<span class="note">Interfaz gráfica como GNOME o KDE Plasma.</span></div>
+    <div class="topic-item">Gestor de paquetes<span class="note">Instala y actualiza programas.</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
-  <div class="kicker">Módulo 1 · Distribuciones</div>
+  <div class="kicker">Módulo 1 - Distribuciones</div>
   <h2 class="slide-title">Un kernel, <span>muchos sabores</span></h2>
-  <p class="slide-sub">Cada distribución empaqueta el kernel con sus propias herramientas, filosofía y público.</p>
+  <p class="slide-sub">Cada distribución combina el kernel con sus propias herramientas.</p>
   <div class="logo-grid">
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/ubuntu.svg')"></div><span>Ubuntu</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/linuxmint.svg')"></div><span>Linux Mint</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/zorinos.svg')"></div><span>Zorin OS</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/fedora.svg')"></div><span>Fedora</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/debian.svg')"></div><span>Debian</span></div>
-    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/redhat.svg')"></div><span>Red Hat</span></div>
+    <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/redhat.svg')"></div><span>RHEL</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/cachyos.svg')"></div><span>CachyOS</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/bazzite.svg')"></div><span>Bazzite</span></div>
     <div class="logo-chip"><div class="logo-icon" style="background-image:url('/icons/steamos.svg')"></div><span>SteamOS</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -115,22 +125,24 @@ fonts:
     <div class="col-card">
       <h3>Modelos de lanzamiento</h3>
       <ul>
-        <li>Estable</li>
-        <li>LTS (soporte extendido)</li>
+        <li>Versiones fijas</li>
+        <li>LTS (soporte a largo plazo)</li>
         <li>Rolling release</li>
       </ul>
     </div>
     <div class="col-card">
       <h3>Arquitecturas</h3>
       <ul>
-        <li>x86 / x86_64</li>
-        <li>ARM</li>
-        <li>Otras arquitecturas actuales</li>
+        <li>x86 (32 bits) y x86_64 (64 bits)</li>
+        <li>ARM32 y ARM64</li>
+        <li>RISC-V y otras</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -138,15 +150,17 @@ fonts:
   <div class="mini-footer"></div>
   <div class="kicker">Presencia actual</div>
   <h2 class="slide-title">¿En dónde vive <span>Linux</span> hoy?</h2>
-  <p class="slide-sub">Respuesta corta: en todo.</p>
+  <p class="slide-sub">En muchos más lugares de los que parece.</p>
   <div class="topic-list">
-    <div class="topic-item">Servidores y la nube<span class="note">La gran mayoría de internet corre sobre Linux</span></div>
-    <div class="topic-item">Android<span class="note">Un kernel Linux debajo de todo</span></div>
+    <div class="topic-item">Servidores y la nube<span class="note">Muy usado en servidores y servicios en la nube</span></div>
+    <div class="topic-item">Android<span class="note">Android utiliza el kernel Linux</span></div>
     <div class="topic-item">Sistemas embebidos<span class="note">Routers, TVs, electrodomésticos</span></div>
-    <div class="topic-item">Clústeres de alto rendimiento (HPC)<span class="note">Prácticamente el 100% del Top500 mundial</span></div>
+    <div class="topic-item">Clústeres de alto rendimiento (HPC)<span class="note">Linux domina las supercomputadoras del TOP500</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -159,7 +173,7 @@ fonts:
       <span class="tag">Licencia GPL</span>
       <h3>Linux</h3>
       <ul>
-        <li>Copyleft: las modificaciones deben compartirse</li>
+        <li>Copyleft al distribuir versiones modificadas</li>
         <li>Enorme ecosistema de distribuciones</li>
       </ul>
     </div>
@@ -167,7 +181,7 @@ fonts:
       <span class="tag">Licencia BSD</span>
       <h3>FreeBSD y familia</h3>
       <ul>
-        <li>Permisiva: se puede modificar sin publicar el código</li>
+        <li>Permite distribuir cambios sin publicar el código</li>
         <li>Atractiva para productos comerciales cerrados</li>
       </ul>
     </div>
@@ -175,6 +189,8 @@ fonts:
   <div class="callout"><strong>Dato curioso:</strong> la Switch usa parte del código de BSD, pero el kernel (Horizon) es propio de Nintendo.</div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -188,7 +204,7 @@ fonts:
       <ul>
         <li>Interfaz gráfica de usuario</li>
         <li>Intuitiva, visual</li>
-        <li>Limitada para automatizar</li>
+        <li>Automatización menos directa</li>
       </ul>
     </div>
     <div class="col-card">
@@ -196,18 +212,25 @@ fonts:
       <ul>
         <li>Interfaz de línea de comandos</li>
         <li>Uso de recursos reducido</li>
+        <li>Fácil de automatizar con scripts</li>
       </ul>
     </div>
   </div>
 </div>
 
 ---
+layout: none
+---
 
-<div class="question-slide">
-  <div class="question-tag">Gaming en Linux</div>
-  <div class="question-text">¿Por qué <span class="hl">SteamOS</span> no es la solución al gaming en Linux?</div>
+<div class="content-slide gaming-question-slide">
+  <div class="mini-corner"></div>
+  <div class="mini-footer"></div>
+  <div class="kicker">Gaming en Linux</div>
+  <h2 class="slide-title">¿Por qué <span>SteamOS</span> no es la solución al gaming en Linux?</h2>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -216,12 +239,15 @@ fonts:
   <div class="kicker">¿Es Wine un emulador?</div>
   <h2 class="slide-title"><span>Proton</span>: correr juegos de Windows en Linux</h2>
   <div class="topic-list">
-    <div class="topic-item">Wine<span class="note">Capa de compatibilidad: traduce llamadas de Windows a Linux</span></div>
+    <div class="topic-item">Wine<span class="note">Capa de compatibilidad para programas de Windows</span></div>
     <div class="topic-item">Valve<span class="note">La empresa detrás de Steam y del impulso al gaming en Linux</span></div>
-    <div class="topic-item">Proton<span class="note">La versión de Wine de Valve, optimizada para juegos</span></div>
+    <div class="topic-item">Proton<span class="note">Basado en Wine, con ajustes para juegos</span></div>
+    <div class="topic-item">Darling<span class="note">Como Wine, pero para programas de macOS</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -233,21 +259,23 @@ fonts:
     <div class="col-card">
       <h3>Drivers de código abierto</h3>
       <ul>
-        <li>Mesa · implementación abierta de OpenGL/Vulkan</li>
-        <li>Nouveau · driver libre para tarjetas NVIDIA</li>
+        <li>Mesa: implementaciones libres de OpenGL y Vulkan</li>
+        <li>Nouveau: driver libre para tarjetas NVIDIA</li>
       </ul>
     </div>
     <div class="col-card">
       <h3>Fabricantes</h3>
       <ul>
-        <li>AMD · buen soporte open source</li>
-        <li>Intel · integrado, buen soporte open source</li>
-        <li>NVIDIA · históricamente más cerrado</li>
+        <li>AMD: buen soporte open source</li>
+        <li>Intel: integrado, buen soporte open source</li>
+        <li>NVIDIA: módulos abiertos y partes propietarias</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -255,29 +283,40 @@ fonts:
   <div class="mini-footer"></div>
   <div class="kicker">Preparando el entorno</div>
   <h2 class="slide-title">Virtualización: <span>nuestra herramienta de práctica</span></h2>
-  <p class="slide-sub">Se permite cualquier máquina virtual (VM) en el curso.</p>
-  <div class="compare-grid">
+  <p class="slide-sub">Se permite usar cualquier máquina virtual durante el curso.</p>
+  <div class="compare-grid compare-grid-three">
     <div class="compare-card highlight">
-      <span class="tag">Recomendada</span>
-      <h3>Hyper-V</h3>
+      <span class="tag">Opción recomendada</span>
+      <h3>VMware Workstation</h3>
       <ul>
-        <li>Hipervisor tipo 1: corre directo sobre el hardware</li>
-        <li>Integrado en Windows, sin instalar nada extra</li>
-        <li>Buena integración con WSL2</li>
+        <li>Hipervisor de tipo 2</li>
+        <li>Gratuito</li>
+        <li>Disponible en Windows y Linux</li>
       </ul>
     </div>
     <div class="compare-card">
-      <span class="tag">También válida</span>
+      <span class="tag">Multiplataforma</span>
       <h3>VirtualBox</h3>
       <ul>
-        <li>Hipervisor tipo 2: corre sobre el sistema operativo</li>
-        <li>Multiplataforma y gratuito</li>
-        <li>No convive bien con Hyper-V activo</li>
+        <li>Hipervisor de tipo 2</li>
+        <li>Gratuito y multiplataforma</li>
+        <li>No es recomendable usarlo junto a Hyper-V</li>
+      </ul>
+    </div>
+    <div class="compare-card">
+      <span class="tag">En Windows</span>
+      <h3>Hyper-V</h3>
+      <ul>
+        <li>Hipervisor de tipo 1</li>
+        <li>Disponible en Windows Pro, Enterprise y Education</li>
+        <li>Integrado en esas ediciones de Windows</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -285,7 +324,7 @@ fonts:
   <div class="mini-footer"></div>
   <div class="kicker">Confianza en lo que descargas</div>
   <h2 class="slide-title">Verificación de <span>integridad</span></h2>
-  <p class="slide-sub">Antes de instalar cualquier distro comprobamos que el archivo no fue alterado — la primera vez lo haremos desde Windows.</p>
+  <p class="slide-sub">Antes de instalar, compara el hash del archivo con el publicado por la distribución.</p>
   <div class="win-window">
     <div class="win-header">
       <div class="win-title"><span class="win-icon"></span> Windows PowerShell</div>
@@ -296,14 +335,14 @@ fonts:
       </div>
     </div>
     <div class="win-body">
-      <div class="term-line"><span class="win-prompt">PS C:\Users\diblo&gt;</span> Get-FileHash .\ubuntu-24.04.iso -Algorithm SHA256</div>
-      <div class="term-line win-out">Algorithm  Hash                                                              Path</div>
-      <div class="term-line win-out">---------  ----                                                              ----</div>
-      <div class="term-line win-out">SHA256     A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2C3D4E5F6A1B2  ubuntu-24.04.iso</div>
+      <div class="term-line"><span class="win-prompt">PS C:\Descargas&gt;</span> (Get-FileHash .\ubuntu.iso -Algorithm SHA256).Hash</div>
+      <div class="term-line win-out">[64 caracteres hexadecimales]</div>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -335,12 +374,14 @@ fonts:
       </div>
     </div>
   </div>
-  <div v-click="7" class="callout"><strong>Nota:</strong> esos guiones con letra (<code>-a</code>, <code>-r</code>, <code>-m</code>) se llaman <em>flags</em>. Se van a ver con mayor detalle en próximas clases.</div>
+  <div v-click="7" class="callout">Las opciones <code>-a</code>, <code>-r</code> y <code>-m</code> también se conocen como <em>flags</em>.</div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux</div>
+  <div class="closing-sub">Rocket Tech Academy - Fundamentos de Linux</div>
 </div>
