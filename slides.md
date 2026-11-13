@@ -1,4 +1,5 @@
 ---
+layout: none
 theme: default
 title: Fundamentos de Linux - Clase 2
 drawings:
@@ -8,9 +9,8 @@ fonts:
   sans: Inter
   mono: JetBrains Mono
 ---
-
 <div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 2 · Fundamentos de Linux</div>
+  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 2 - Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
@@ -24,9 +24,12 @@ fonts:
       </div>
     </div>
   </div>
+  <div class="corner-cut"></div>
   <div class="footer-line"></div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -55,19 +58,21 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
   <div class="kicker">Organización</div>
   <h2 class="slide-title">El sistema de archivos es un solo árbol</h2>
-  <p class="slide-sub">Linux organiza todo bajo una raíz: <code class="code-pill">/</code>. No usa letras como <code class="code-pill">C:</code> o <code class="code-pill">D:</code>.</p>
+  <p class="slide-sub">Linux organiza los archivos desde <code class="code-pill">/</code>, sin asignar una letra a cada disco como Windows.</p>
   <div class="two-col">
     <div class="col-card">
       <h3>En Windows</h3>
       <ul>
         <li>Cada disco suele aparecer con una letra.</li>
-        <li>Ejemplo: <code class="code-pill">C:\Usuarios</code></li>
+        <li>Ejemplo: <code class="code-pill">C:\Users</code></li>
         <li>Ejemplo: <code class="code-pill">D:\Juegos</code></li>
       </ul>
     </div>
@@ -83,12 +88,14 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
   <div class="kicker">Ubicación</div>
-  <h2 class="slide-title"><code class="cmd-pill">pwd</code>: ¿Contexto? ¿Dónde estoy?</h2>
+  <h2 class="slide-title">¿Dónde estoy? <code class="cmd-pill">pwd</code></h2>
   <div class="term-window">
     <div class="term-header">
       <div class="term-title">bash — konsole</div>
@@ -107,19 +114,21 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
   <div class="kicker">Desplazamiento entre directorios</div>
-  <h2 class="slide-title">Ruta absoluta vs Ruta relativa</h2>
-  <p class="slide-sub">Si empieza con <code class="code-pill">/</code>, es absoluta. Caso contrario, se considera relativa.</p>
+  <h2 class="slide-title">Ruta absoluta y ruta relativa</h2>
+  <p class="slide-sub">La ruta absoluta empieza en <code class="code-pill">/</code>. La relativa parte del directorio actual.</p>
   <div class="two-col">
     <div class="col-card">
       <h3>Ruta absoluta</h3>
       <ul>
         <li>Empieza con <code class="code-pill">/</code></li>
-        <li>Esta siempre apunta a un mismo lugar, no importa en qué directorio se esté</li>
+        <li>No depende del directorio actual</li>
         <li>Ejemplo: <code class="code-pill">cd /home/darobles/Documentos</code></li>
       </ul>
     </div>
@@ -127,13 +136,15 @@ fonts:
       <h3>Ruta relativa</h3>
       <ul>
         <li>No empieza con <code class="code-pill">/</code></li>
-        <li>Directorio actual sí es relevante</li>
-        <li><code class="code-pill">.</code> es aquí mismo, <code class="code-pill">..</code> es un directorio atrás</li>
+        <li>Depende del directorio actual</li>
+        <li><code class="code-pill">.</code> es aquí mismo, <code class="code-pill">..</code> es el directorio superior</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -152,14 +163,16 @@ fonts:
     </div>
     <div class="term-body">
       <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span></div>
-      <div class="term-line term-out">Documentos  Descargas  Imagenes</div>
+      <div class="term-line term-out">Documentos  Descargas  Imágenes</div>
       <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">-la</span></div>
-      <div class="term-line term-out">drwxr-xr-x  darobles darobles  .config</div>
-      <div class="term-line term-out">-rw-r--r--  darobles darobles  .bashrc</div>
+      <div class="term-line term-out">drwx------ 2 darobles darobles 4096 nov 12 .config</div>
+      <div class="term-line term-out">-rw-r--r-- 1 darobles darobles  220 nov 12 .bashrc</div>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -188,6 +201,8 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
@@ -196,17 +211,19 @@ fonts:
   <h2 class="slide-title">Archivos <span>ocultos</span> y el directorio <span>Home</span></h2>
   <div class="topic-list">
     <div class="topic-item">¿Su nombre empieza con <code class="code-pill">.</code>?<span class="note">Todo archivo o carpeta que empieza con <code class="code-pill">.</code> está oculto por convención. Ejemplo: <code class="code-pill">.gitignore</code></span></div>
-    <div class="topic-item"><code class="code-pill">~</code><span class="note">Atajo para tu directorio Home. En inglés se le suele llamar <em>tilde</em>. Equivale a <code class="code-pill">/home/usuario</code></span></div>
+    <div class="topic-item"><code class="code-pill">~</code><span class="note">Atajo para tu directorio personal. En Linux suele ser <code class="code-pill">/home/usuario</code>.</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
   <div class="kicker">Búsqueda por patrón</div>
-  <h2 class="slide-title">Comodín en los directorios (<span>wildcards</span>)</h2>
+  <h2 class="slide-title">Comodines en nombres de archivos</h2>
   <div class="term-window">
     <div class="term-header">
       <div class="term-title">bash — konsole</div>
@@ -223,17 +240,19 @@ fonts:
       <div class="term-line term-out">tarea1.txt</div>
     </div>
   </div>
-  <div class="callout"><strong>Resumen:</strong> <code>*</code> reemplaza a cualquier cantidad de caracteres, <code>?</code> reemplaza exactamente uno.</div>
+  <div class="callout"><code>*</code> coincide con cero o más caracteres. <code>?</code> coincide con uno.</div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
   <div class="mini-footer"></div>
   <div class="kicker">Ayudas disponibles</div>
-  <h2 class="slide-title">Comando <code class="cmd-pill">man</code> y el flag <code class="cmd-pill">--help</code></h2>
-  <p class="slide-sub"><code class="cmd-pill">man</code> es documentación, <code class="cmd-pill">--help</code> es una guía o resumen más corto.</p>
+  <h2 class="slide-title">Ayuda con <code class="cmd-pill">man</code> y <code class="cmd-pill">--help</code></h2>
+  <p class="slide-sub"><code class="cmd-pill">man</code> abre el manual. Muchos programas aceptan <code class="cmd-pill">--help</code> para mostrar opciones.</p>
   <div class="term-window">
     <div class="term-header">
       <div class="term-title">bash — konsole</div>
@@ -245,16 +264,18 @@ fonts:
     </div>
     <div class="term-body">
       <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">man</span> <span class="term-flag">ls</span></div>
-      <div class="term-line term-out">Abre el manual completo del comando</div>
+      <div class="term-line term-out">Abre el manual del comando</div>
       <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">ls</span> <span class="term-flag">--help</span></div>
-      <div class="term-line term-out">Muestra un resumen rápido de flags</div>
+      <div class="term-line term-out">Muestra opciones y ayuda breve</div>
     </div>
   </div>
 </div>
 
 ---
+layout: none
+---
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 2</div>
+  <div class="closing-sub">Rocket Tech Academy - Fundamentos de Linux - Clase 2</div>
 </div>
