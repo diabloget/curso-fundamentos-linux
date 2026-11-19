@@ -1,4 +1,5 @@
 ---
+layout: none
 theme: default
 title: Fundamentos de Linux - Clase 3
 drawings:
@@ -9,8 +10,8 @@ fonts:
   mono: JetBrains Mono
 ---
 
-<div class="deck-frame">
-  <div class="red-title-bar"><img class="title-bar-icon" src="/public/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 3 · Fundamentos de Linux</div>
+<div class="deck-frame no-profile-cover">
+  <div class="red-title-bar"><img class="title-bar-icon" src="/img/RocketGirlsLogo.png" alt="Rocket Girls" />Clase 3 - Fundamentos de Linux</div>
   <div class="course-tag">Rocket Tech Academy</div>
   <div class="hero-row">
     <div class="hero-main">
@@ -26,9 +27,12 @@ fonts:
       </div>
     </div>
   </div>
+  <div class="corner-cut"></div>
   <div class="footer-line"></div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -55,6 +59,8 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
@@ -65,7 +71,7 @@ fonts:
     <div class="col-card">
       <h3 class="plain-case"><code class="cmd-pill">cp</code></h3>
       <ul>
-        <li>Copia un archivo o carpeta a otro lugar.</li>
+        <li>Copia archivos. Con <code class="code-pill">-r</code>, también directorios.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">cp semana3.txt respaldo.txt</code></li>
         <li>El archivo original se mantiene igual.</li>
       </ul>
@@ -82,6 +88,8 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
@@ -94,7 +102,7 @@ fonts:
       <ul>
         <li>Elimina archivos.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">rm semana3.txt</code></li>
-        <li>No existe una papelera de reciclaje en la terminal.</li>
+        <li>No envía los archivos a la papelera.</li>
       </ul>
     </div>
     <div class="col-card">
@@ -108,6 +116,8 @@ fonts:
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -126,14 +136,16 @@ fonts:
     </div>
     <div class="term-body">
       <div class="term-line"><span class="term-prompt">❯</span> <span class="term-cmd">cat</span> <span class="term-flag">notas.txt</span></div>
-      <div class="term-line term-out">Imprime todo el contenido</div>
+      <div class="term-line term-out">Apuntes de la clase 3</div>
       <div class="term-line" style="margin-top:10px"><span class="term-prompt">❯</span> <span class="term-cmd">less</span> <span class="term-flag">notas.txt</span></div>
-      <div class="term-line term-out">Muestra el contenido una página a la vez</div>
+      <div class="term-line term-out">Apuntes de la clase 3 <span class="term-end">(END)</span></div>
     </div>
   </div>
-  <p class="mini-note"><strong>Nota:</strong> less es en sí mismo un lector, usa q para salir, f para avanzar y b para retroceder.</p>
+  <p class="mini-note"><strong>Nota:</strong> <code>less</code> permite leer por páginas. Usa <code>q</code> para salir, <code>f</code> para avanzar y <code>b</code> para retroceder.</p>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -143,7 +155,7 @@ fonts:
   <h2 class="slide-title">¿Cómo se modifican los archivos?</h2>
   <div class="two-col">
     <div class="col-card">
-      <h3 class="plain-case">nano y Micro</h3>
+      <h3 class="plain-case">nano y micro</h3>
       <ul>
         <li>Editores simples.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">nano notas.txt</code></li>
@@ -163,6 +175,8 @@ fonts:
 </div>
 
 ---
+layout: none
+---
 
 <div class="content-slide">
   <div class="mini-corner"></div>
@@ -173,22 +187,24 @@ fonts:
     <div class="col-card">
       <h3 class="plain-case"><code class="cmd-pill">locate</code></h3>
       <ul>
-        <li>Busca pasiva o con caché.</li>
+        <li>Busca en una base de datos indexada.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">locate semana3.txt</code></li>
-        <li>Rápido.</li>
+        <li>Rápido, pero el índice puede estar desactualizado.</li>
       </ul>
     </div>
     <div class="col-card">
       <h3 class="plain-case"><code class="cmd-pill">find</code></h3>
       <ul>
-        <li>Busca activa y actual.</li>
+        <li>Recorre los directorios al realizar la búsqueda.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">find . -name "*.txt"</code></li>
-        <li>Lento.</li>
+        <li>Puede tardar más en búsquedas grandes.</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -210,12 +226,14 @@ fonts:
       <ul>
         <li>Reduce el tamaño.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">zip -r carpeta.zip carpeta/</code></li>
-        <li>Este puede tener una contraseña o clave de cifrado.</li>
+        <li>También admite cifrado, pero este comando no lo activa.</li>
       </ul>
     </div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -223,13 +241,15 @@ fonts:
   <div class="mini-footer"></div>
   <div class="kicker">Atajos</div>
   <h2 class="slide-title">Enlaces simbólicos (<span>symlinks</span>)</h2>
-  <div class="topic-list">
-    <div class="topic-item">¿Qué es?<span class="note">Un archivo especial que apunta hacia otro archivo o carpeta, parecido a un acceso directo. Se crea con <code class="code-pill">ln -s</code></span></div>
-    <div class="topic-item">¿Para qué sirve?<span class="note">Permite acceder al mismo archivo desde varias rutas distintas, sin duplicar su contenido</span></div>
-    <div class="topic-item">¿Cómo se usa?<span class="note">Se crea con <code class="code-pill">ln -s semana3.txt acceso.txt</code> y ahora podemos usarlo comos si fuera el original <code class="code-pill">cat acceso.txt</code></span></div>
+  <div class="topic-list symlink-list">
+    <div class="topic-item">¿Qué es?<span class="note">Un archivo especial que apunta hacia otro archivo o carpeta, parecido a un acceso directo. Se crea con <code class="code-pill">ln -s</code>.</span></div>
+    <div class="topic-item">¿Para qué sirve?<span class="note">Permite acceder al mismo archivo desde varias rutas distintas, sin duplicar su contenido.</span></div>
+    <div class="topic-item">¿Cómo se usa?<span class="note">Se crea con <code class="code-pill">ln -s semana3.txt acceso.txt</code> y después podemos utilizar <code class="code-pill">cat acceso.txt</code>.</span></div>
   </div>
 </div>
 
+---
+layout: none
 ---
 
 <div class="content-slide">
@@ -247,7 +267,7 @@ fonts:
       </ul>
     </div>
     <div class="col-card">
-      <h3 class="plain-case">Basadas en RedHat o Fedora</h3>
+      <h3 class="plain-case">Fedora y RHEL</h3>
       <ul>
         <li>Usan <code class="cmd-pill">dnf</code>.</li>
         <li class="example-line">Ejemplo: <code class="code-pill">sudo dnf install nombre-programa</code></li>
@@ -255,12 +275,14 @@ fonts:
       </ul>
     </div>
   </div>
-  <p class="mini-note"><strong>Nota:</strong> Como se mencionó en la primera clase, si la distribución tiene un "papá" esta suele heredar sus repositorios y gestores de software, si no tienen un papá, suelen tener uno propio. Ejemplos de distribuciones que usan su propio gestor: Solus, Void Linux...</p>
+  <p class="mini-note"><strong>Nota:</strong> Las distribuciones derivadas suelen conservar el gestor de paquetes, pero no necesariamente los repositorios. Solus y Void Linux utilizan otros gestores.</p>
 </div>
 
+---
+layout: none
 ---
 
 <div class="closing-slide">
   <div class="closing-title">¿<span>Preguntas</span>?</div>
-  <div class="closing-sub">Rocket Tech Academy · Fundamentos de Linux · Clase 3</div>
+  <div class="closing-sub">Rocket Tech Academy - Fundamentos de Linux - Clase 3</div>
 </div>
